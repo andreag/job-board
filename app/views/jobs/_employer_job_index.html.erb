@@ -1,0 +1,32 @@
+<table class="alternate results" border="0" style="width: 100%">
+  <tr>
+    <td><strong>Job Title</strong></td>
+    <td><strong>Location</strong></td>
+    <td><strong>Deadline</strong></td>
+  </tr>
+
+
+<% @jobs.each do |job| %>
+  <tr>
+    <td><%= link_to h(job.title), job_path(job) %></td>
+    <td><%= h job.location %></td>
+    <td><%= h job.deadline.to_s(:results) unless job.deadline.nil? %></td>
+		<td>
+			<%= link_to image_tag('/images/icons/file_edit.png', :title => 'Edit'), edit_job_path(job) %> 
+			<%= link_to image_tag('/images/icons/file.png', :title => 'View'), job_path(job) %> 
+			<%= link_to image_tag('/images/icons/trash.png', :title => 'Delete'), job_path(job), :method => :delete, :confirm => "are you sure you want to delete this job listing?" %> 
+		</td>
+  </tr>
+	<tr style="border: 1px solid #EEF8D2; border-top: 0px;">
+		 <% jobcount = Applicant.count(:conditions => ["job_id = ?", job.id]) %>
+		 <td colspan='3'><% if jobcount > 0 %><%= link_to "View Applicants  (<span style='font-size: 11px'>#{jobcount}</span>)", applicant_path(job.id) %> <% else %> No Applicants<% end%> </td> 
+	</tr>
+	
+<% end %>
+</table>
+
+<div style="margin-top: 10px; margin-bottom: 10px; text-align: center">
+  <%= will_paginate @jobs %>
+</div>
+
+<br />

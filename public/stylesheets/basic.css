@@ -1,0 +1,62 @@
+/*
+ * SimpleModal Basic Modal Dialog
+ * http://www.ericmmartin.com/projects/simplemodal/
+ * http://code.google.com/p/simplemodal/
+ *
+ * Copyright (c) 2010 Eric Martin - http://ericmmartin.com
+ *
+ * Licensed under the MIT license:
+ *   http://www.opensource.org/licenses/mit-license.php
+ *
+ * Revision: $Id: basic.css 242 2010-03-14 00:55:02Z emartin24 $
+ *
+ */
+
+#basic-modal-content {display:none;}
+
+/* Overlay */
+#simplemodal-overlay {background-color:#000000; cursor:wait;}
+
+/* Container */
+#simplemodal-container {height:210px; width:220px; color:#bbb; background-color:#333; border:4px solid #444; padding:15px;}
+#simplemodal-container code {background:#141414; border-left:3px solid #65B43D; color:#bbb; display:block; margin-bottom:12px; padding:4px 6px 6px;}
+#simplemodal-container a {color:#ddd;}
+#simplemodal-container a.modalCloseImg {background:url(/images/x.png) no-repeat; width:25px; height:29px; display:inline; z-index:3200; position:absolute; top:-15px; right:-16px; cursor:pointer;}
+#simplemodal-container #basic-modal-content {padding:8px;}
+
+#login-modal-content fieldset {background-color: #333;}
+#login-modal-content h2 {color: #CCC; text-shadow: #454545 1px 1px 1px;}
+#login-modal-content label {color: #CCC;}
+
+
+/* Apply For Job Overlay */
+/* Overlay */
+#apply-container-overlay {background-color:#000000; cursor:wait;}
+
+/* Container */
+#apply-container {height:400px; width:500px; color:#bbb; background-color:#333; border:4px solid #444; padding: 4px 10px 10px 10px;}
+#apply-container code {background:#141414; border-left:3px solid #65B43D; color:#bbb; display:block; margin-bottom:12px; padding:4px 6px 6px;}
+#apply-container a {color:#ddd;}
+#apply-container a.modalCloseImg {background:url(/images/x.png) no-repeat; width:25px; height:29px; display:inline; z-index:3200; position:absolute; top:-15px; right:-16px; cursor:pointer;}
+#apply-container #basic-modal-content {padding:8px;}
+
+
+#apply-container fieldset {background-color: #333; color: #EEE;}
+#apply-container h2 {color: #CCC; text-shadow: #454545 1px 1px 1px;}
+#apply-container label {color: #CCC;}
+#apply-container h1 {color: #E3F4B8; text-shadow: #454545 1px 1px 1px; font-size: 22px; padding-bottom: 10px;}
+#apply-container h3 {color: #E3F4B8; text-shadow: #454545 1px 1px 1px; font-size: 16px; padding-bottom: 10px;}
+
+#apply-container textarea {background-color: #333; border:4px solid #444; color: #AAA;}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,34 @@
+<%= render :partial => 'sidebar' %>
+<fieldset>
+  <legend>Edit Profile</legend>
+
+  <div style="padding-left: 10px;">
+    <%= error_messages_for :user %>
+  </div>
+
+  <% form_for @user, :url => "/seekers/update" do |f| %>
+
+
+  <div class="group">
+    <div class="field">
+      <%= f.label :first_name %><% required_field %><br />
+      <%= f.text_field :first_name, :size => 14, :class => :textfield %>
+    </div>
+    <div class="field">
+      <%= f.label :last_name %><% required_field %><br />
+      <%= f.text_field :last_name, :size => 17, :class => :textfield %>
+    </div>
+  </div>
+
+  <%# JOB SEEKER FORM %>
+  <%= render :partial => 'seeker', :locals => {:f => f} %>
+
+  <div class="group">
+    <div class="field">
+      <%= hidden_field_tag :id, @user.id %>
+      <%= f.submit "Update" %>
+    </div>
+  </div>
+
+  <%-end-%>
+</fieldset>

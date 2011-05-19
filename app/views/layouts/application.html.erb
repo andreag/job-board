@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="sv-SE">
+
+<head profile="http://gmpg.org/xfn/11">
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title><%= @title + " | " unless @title.nil? %> OntarioHealthJobs.com</title>
+	
+	<!-- CSS! -->
+        <%= stylesheet_link_tag 'reset' %>
+        <%= stylesheet_link_tag '960' %>
+        <%= stylesheet_link_tag 'style' %>
+				<%= stylesheet_link_tag 'basic' %>
+        <%= stylesheet_link_tag "datePicker" %>  
+				<%#= stylesheet_link_tag "jquery-ui-1.8.2.custom" %>  
+
+	<!--[if IE 7]>
+
+	
+	<![endif]-->
+
+	<!-- JQuery! -->
+        <%= javascript_include_tag 'jquery-1.4.1.min' %>
+        <%= javascript_include_tag 'jquery.livequery' %>
+        <%= javascript_include_tag "date" %> 
+        
+        <%= javascript_include_tag "jquery.datePicker.min" %> 
+        <%= javascript_include_tag 'jquery-ui-1.8.2.custom.min' %>
+																		
+				<%= javascript_include_tag 'jquery.simplemodal-1.3.5.min' %>
+        <%= javascript_include_tag 'application' %>
+
+	<script type="text/javascript">                                         
+	
+		Date.firstDayOfWeek = 0;
+		Date.format = 'mm/dd/yyyy';	
+  
+          $(document).ready(function() {
+
+              // Highlight the flash notice if it's present
+              $("#notice").effect("highlight", {}, 3000);
+              $("#error").effect("highlight", {}, 3000);
+
+              
+              // Replace legend tags with h3 tags if javascript is enabled
+              $("legend").each(function(index){
+                $(this).replaceWith("<h2>" + $(this).text() + "</h2>");
+              });
+
+              // Alternate Table Colors
+              $(".alternate#signup-star tr:first").css('backgroundColor', '#C4E283');
+              $(".alternate tr:odd").css('backgroundColor', '#EEF8D2');
+
+              // Date Picker
+              $('.date-pick').datePicker({clickInput:true})
+
+              // Yet another IE fix 
+              if ($.browser.msie === true) {
+                  $('input, textarea')
+                          .bind('focus', function() {
+                                  $(this).addClass('ieFocusHack');
+                          }).bind('blur', function() {
+                                  $(this).removeClass('ieFocusHack');
+                          });
+              }
+          
+							$('#login-nav').click(function (e) {
+								$('#login-modal-content').modal({opacity: 69});
+
+								  return false;
+							})
+							
+								$('#read-more').click(function (e) {
+									$('#read-more-content').modal({opacity: 69});
+
+									  return false;
+								})
+
+         });
+                                  
+          window._auth_token_name = "<%= request_forgery_protection_token %>";
+          window._auth_token = "<%= form_authenticity_token %>";
+
+	</script>  
+
+	</head>
+<body>
+	
+			<div id="pre-header">
+				<% if logged_in? %>
+					<div id="top-right-logged">
+							Signed in as <%= current_user.email %>. Not you?
+							<%= link_to "Sign out", '/logout' %>
+					</div>
+					<% else %>
+					<div id="top-right-logged">
+		
+							<%= link_to "Sign in", '/login' %> or create a free	<%= link_to "account", '/signup' %>
+					</div>
+				<% end %>
+			</div>
+			
+			<div id="header" class="container_12">
+				<%= link_to image_tag('/images/logo4.png', :alt => "Ontario Health Jobs", :id => "logo"), '/' %>
+				<div id="slogan">
+					<h1>Connecting Employers and Candidates <br />to careers in Health care </h1>
+						<% unless logged_in? %>
+							<div id="signup-star">
+							<%= link_to image_tag('/images/sign-up-free.png'), '/signup' %>
+							</div>
+						<% end %>
+				</div>
+				
+			</div>
+			
+			<div id="nav-bar">
+				<div id="nav-links">
+              <%= link_to "<span>Home</span>", '/', :id => "home" %>
+              <%= link_to "<span>Job Listings</span>", '/listings', :id => "job-listings" %>
+              <%= link_to "<span>FAQ</span>", {:controller => "pages", :action => "faq"}, :id => "faq" %>
+              <%= link_to "<span>About us</span>", {:controller => "pages", :action => "about"}, :id => "faq", :id => "about-us" %>
+              <%= link_to "<span>Contact us</span>", {:controller => "pages", :action => "about"}, :id => "contact-us" %>
+              
+             	<% if logged_in? %>
+             		<%= link_to "<span>Your Account</span>", '/profile', :id => "your-account" %>
+             	  <%= link_to "<span>Logout</span>", '/logout', :id => "logout" %>
+							<% else %>
+								<%= link_to "<span>Login</span>", '/login', :id => "login-nav" %>
+             	  <%= link_to "<span>Sign Up</span>", '/signup', :id => "sign-up" %>
+							<% end %>
+							
+				</div><!-- end nav-links -->
+			</div><!-- end nav-bar -->
+
+
+		<div id="mainContentContainer"  >
+		
+			<div class="container_16">
+    
+          <div class="grid_16" >
+            <div id="flash-message">
+              <!-- Flash Message -->
+              <%= content_tag 'div', "#{image_tag('/images/icons/true.png', :style => "position: relative; top: 3px;")} #{flash[:notice]}", :style => "margin-top: 10px;", :class => 'notice corner', :id => 'notice' if flash[:notice] %>
+              <%= content_tag 'div', "#{image_tag('/images/icons/error.png',:style => "position: relative; top: 3px;")} #{flash[:error]}", :style => "margin-top: 10px;", :class => 'error corner', :id => 'error' if flash[:error] %>
+            </div><!-- end flash-message -->
+          </div><!-- end grid_16 -->
+          
+					<br class="clear">
+		
+            <!-- SIDEBAR -->
+            <% if yield :employer_side_bar or yield :seeker_side_bar %>
+              <div class="grid_3">
+                <div style="padding-left: 10px; padding-right: 20px;">
+                  <% if yield :employer_side_bar %> 
+                    <%= yield :employer_side_bar %> 
+                  <% else %>
+                    <%= yield :seeker_side_bar %> 
+                  <% end %>
+                </div>
+              </div>
+              <div class="grid_10">
+            <% else %>
+              <div class="grid_13">
+            <% end %>
+
+            <div style="padding-left: 10px; padding-right: 20px;">
+              <%= yield %> 
+            </div>
+
+          </div>
+
+          <!-- Right Side Ads -->
+          <div class="grid_3">
+							<script type="text/javascript"><!--
+							google_ad_client = "pub-0344284513354247";
+							/* 120x600, created 6/17/10 */
+							google_ad_slot = "9818570184";
+							google_ad_width = 120;
+							google_ad_height = 600;
+							//-->
+							</script>
+							<script type="text/javascript"
+							src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+							</script>
+          </div>
+
+
+          <br class="clear" />
+          
+		</div><!-- end container_16 -->
+	</div><!-- end mainContentContainer -->
+	
+	<div id="footer" >
+		 <div class="container_16">
+          <div class="grid_5">
+              <div class="footer-box"> 
+              <div class="title">About AHealthJob.com</div>
+                <ul>
+                  <li><%= link_to 'FAQ', :controller => "pages", :action => "faq" %></li>
+                  <li><%= link_to 'Home', '/' %> 
+                  <li><%= link_to 'About us', :controller => "pages", :action => "about" %></li> 
+                  <li><%= link_to 'Contact us', :controller => "pages", :action => "contact" %></li>
+                </ul>
+              </div><!-- end footer-box -->
+          </div>
+
+          <div class="grid_5">
+              <div class="footer-box"> 
+              <div class="title">Job Seekers</div>
+                <ul>
+                  <li><%= link_to 'Job Listings', listings_path %></li>
+                  <li><%= link_to 'Sign In', :controllers => "session", :action => 'new' %></li>
+                  <li><%= link_to 'Create An Account', '/signup' %></li>
+                </ul>
+              </div><!-- end footer-box -->
+          </div>
+          <div class="grid_5">
+              <div class="footer-box"> 
+              <div class="title">Employers</div>
+                <ul>
+                  <li><%= link_to 'Sign In', :controllers => "session", :action => 'new' %></li>
+                  <li><%= link_to 'Post a Job', new_job_path %></li>
+                </ul>
+              </div><!-- end footer-box -->
+          </div>
+         
+      </div><!-- end container_16 -->
+		</div><!-- end footer -->
+	
+	
+			<div id="login-modal-content" class="modal">
+				<fieldset>
+					<h2>Login</h2>
+					<% form_tag session_path do -%>
+						<%= render :partial => 'sessions/form' %>
+					<% end -%>
+				</fieldset>
+			</div>
+	
+	<br /><br /><br /><br />
+      <% if RAILS_ENV == "development"  %>
+      <br /> <br /> <br /> <hr />
+      <br />
+      <fieldset><legend>PARAMS</legend>
+        <%= debug(params)%>
+        <br /><hr /><br />
+
+      </fieldset>
+      <%end%>
+
+  </body>
+</html>

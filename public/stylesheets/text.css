@@ -1,0 +1,86 @@
+/*
+	960 Grid System ~ Text CSS.
+	Learn more ~ http://960.gs/
+
+	Licensed under GPL and MIT.
+*/
+
+/* `Basic HTML
+----------------------------------------------------------------------------------------------------*/
+
+body {
+	font: 14px/1.5 'Helvetica Neue', Arial, 'Liberation Sans', FreeSans, sans-serif;
+}
+
+/* MgOpen Moderna - http://www.zvr.gr/typo/mgopen/index */
+/*@font-face { font-family: 'MgOpen Modata'; src: url('../fonts/MgOpenModataRegular.eot'); src: local('MgOpen Modata Regular'), url('../fonts/MgOpenModataRegular.ttf') format('truetype'), url('../fonts/MgOpenModataRegular.svg#MgOpenModata') format('svg'); }
+*/
+
+h1, h2, h3, h4, h5, h6 { font-weight: normal; font-family: Arial, Helvetica, Geneva; padding: 10px 0px 0px 0px; color: #191919; }
+
+
+a:focus {
+	outline: 1px dotted;
+}
+
+hr {
+	border: 0 #ccc solid;
+	border-top-width: 1px;
+	clear: both;
+	height: 0;
+}
+
+p {line-height: 1.8em}
+
+
+/* `Headings
+----------------------------------------------------------------------------------------------------*/
+
+h1 {
+	font-size: 25px;
+}
+
+h2 {
+	font-size: 23px;
+}
+
+h3 {
+	font-size: 21px;
+}
+
+h4 {
+	font-size: 19px;
+}
+
+h5 {
+	font-size: 17px;
+}
+
+h6 {
+	font-size: 15px;
+}
+
+/* `Spacing
+----------------------------------------------------------------------------------------------------*/
+
+ol {
+	list-style: decimal;
+}
+
+p,
+dl,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol,
+ul,
+pre,
+table,
+address,
+fieldset {
+	margin-bottom: 20px;
+}

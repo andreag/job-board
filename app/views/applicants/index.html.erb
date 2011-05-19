@@ -1,0 +1,19 @@
+<h1>Listing applicants</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% @applicants.each do |applicant| %>
+  <tr>
+		<td><%= applicant.message_for_employer %></td>
+    <td><%= link_to 'Show', applicant %></td>
+    <td><%= link_to 'Edit', edit_applicant_path(applicant) %></td>
+    <td><%= link_to 'Destroy', applicant, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New applicant', new_applicant_path %>

@@ -1,0 +1,26 @@
+
+  <% f.fields_for :employer do |e| %>
+
+  <div class="group">
+    <div class="field">
+      <%= e.label :company_name %><%= required_field %><br />
+      <%= e.text_field :company_name, :class => "textfield" %>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="field">
+      <%= e.label :website_url %><br />
+      <%= e.text_field :website_url, :class => "textfield" %>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="field">
+      <%= e.label :description, "Company Profile" %> <span class="description">- tell us a little bit about your company</span><br />
+      <%= e.text_area :description, :cols => 70, :rows => 10, :class => "textfield" %>
+    </div>
+  </div>
+  </fieldset>
+  <%-end-%>
+  

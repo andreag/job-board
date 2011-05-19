@@ -1,0 +1,29 @@
+
+<% content_for :employer_side_bar do %>
+
+<div class="grid_3 alpha" style="position: relative; top: -20px;" >
+  <div class="contentBox">
+
+    <h2><%= @employer.company_name %></h2>
+    <% unless @employer.logo.nil? %>
+      <%= image_tag(@employer.logo.logo.url(:profile)) %>
+    <% else %>
+      <%= link_to image_tag('/images/no-logo.png', :size => "150x120"), new_logo_path %>
+    <%-end-%>
+    <br />
+
+    <h2>Actions</h2>
+    <%= link_to 'Home', {:controller => "employers"}%><br />
+    <%= link_to 'View Profile', {:controller => "employers", :action => "public", :id => @employer.id}, :target => "_blank" %><br />
+    <%= link_to 'Edit Profile', {:controller => "employers", :action => "edit"} %><br />
+    <%= link_to 'Company Logo', new_logo_path %><br />
+	
+
+    <h2>Jobs</h2>
+    <%= link_to 'Create New Job', new_job_path %><br />
+		<%= link_to 'Current Job Listings', employer_index_jobs_path %><br />
+		
+    </div>
+  
+</div>
+<%-end-%>

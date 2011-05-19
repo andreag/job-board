@@ -1,0 +1,580 @@
+
+/* HTML Tags
+----------------------------------------------------------------------------------------------------*/
+
+body{
+	background-color: #FFF;
+	background-image: url('../images/body-bg.png');
+	background-repeat: repeat-x;
+/*	font: 14px/1.5 Arial, 'Liberation Sans', FreeSans, sans-serif;*/
+	font-size: 14px;
+	font-family: 'Trebuchet MS',"Lucida Grande",Helvetica,sans-serif;
+
+}
+
+h1, h2, h3, h4, h5, h6 { font-weight: normal; font-family: Arial, Helvetica, Geneva; padding: 10px 0px 0px 0px; color: #191919; }
+p {line-height: 1.8em}
+table th {text-align: left;}
+
+ul {padding-left: 0px;}
+
+a {color: #3D2222; padding: 0px;}
+a:hover {color: #6F8C26; text-decoration: underline}
+a.hoverGreen:hover {padding: 3px; background-color: #6F8C26; color: #fff;}
+
+
+/* Form Design 
+----------------------------------------------------------------------------------------------------*/
+fieldset 
+{ 
+
+
+  background-color:#FEFEFE;
+  padding: 0px;
+  margin: 0px 5px 5px 5px;
+  margin: 0;
+}
+fieldset * {padding-left: 5px;}
+fieldset h2
+{                                                         
+	font-size: 1.2em;
+	text-shadow: #CCC 1px 1px 1px;
+	color: #6F5354;
+	margin: 0px; 
+	margin-bottom: 15px;
+	padding: 4px;
+	border-bottom: 1px solid #BCCF8E;
+	
+}
+legend {
+  color: #545454; padding-left: 0px; font-weight: bold; font-size: 18px; padding: 2px 4px 2px 4px;
+  background-color:#FFF;
+}
+label {text-transform: capitalize; display: block; }
+
+div.separator {border-top: 1px solid #C8CEC8; height: 3px; margin-top: 10px; clear: both; margin-bottom: 10px;}
+
+input[type=text]:focus, textarea:focus
+{
+    background-color: #FFF9C5;
+}
+input[type=text]:focus, input[type=password]:focus, input.ieFocusHack
+{
+    background-color: #FFF9C5;
+}
+
+input.textfield, textarea {
+	border: 1px solid #d5d5d5;
+	background: #fff;
+	padding: 4px 6px;
+	font-size: 1.0em;
+	color: #504343;
+	vertical-align: middle;
+	font-family: 'Trebuchet MS',"Lucida Grande",Helvetica,sans-serif;
+}
+
+
+div.group 
+{
+  clear: both;
+}
+div.field label {display: inline; font-size: 1.0em; color: #877569; margin-left: 0; padding-left: 0;}
+div.field
+{
+  padding: 0;
+  margin: 0 15px 10px 0;
+  float: left;
+}
+
+div.field.separated
+{
+  clear: both;
+  float: left;
+  margin-right: 15px;
+}
+
+
+/* Top Global Navigation
+----------------------------------------------------------------------------------------------------*/
+
+#nav-bar
+{
+	background-image: url('../images/nav-bar-bg.png');
+	background-repeat: no-repeat;
+	height: 73px;
+	position: relative;
+	width: 1007px;
+	margin: 0 auto;
+}
+
+#nav-bar ul {list-style: none;}
+#nav-bar ul li {display: inline;}
+#nav-bar a 
+{
+	text-decoration: none; 
+	color: #FFF;
+	text-shadow: 1px 1px #000000;
+}
+
+#nav-links
+{
+	position: absolute;
+	top: 19px;
+	left: 30px;
+}
+
+
+#home
+{
+	display: block;
+	float: left;
+	position: relative;
+	top: 1px;
+	background-image: url('../images/home.png');
+	background-position: 0px 0px;
+	height: 39px;
+	width: 64px;
+}
+#home:hover
+{
+	background-position: 0 39px;
+}
+#home span{display: none}
+
+#job-listings
+{
+	display: block;
+	float: left;
+	position: relative;
+	top: 1px;
+	background-image: url('../images/job-listings.png');
+	background-position: 0px 0px;
+	height: 39px;
+	width: 116px;
+}
+#job-listings:hover
+{
+	background-position: 0 39px;
+}
+#job-listings span {display: none;}
+
+#employers
+{
+	display: block;
+	float: left;
+	position: relative;
+	top: 1px;
+	background-image: url('../images/employers.png');
+	background-position: 0px 0px;
+	height: 39px;
+	width: 116px;
+}
+#employers:hover
+{
+	background-position: 0 39px;
+}
+#employers span {display: none;}
+
+#job-seekers
+{
+	display: block;
+	float: left;
+	position: relative;
+	top: 1px;
+	background-image: url('../images/job-seekers.png');
+	background-position: 0px 0px;
+	height: 39px;
+	width: 116px;
+}
+#job-seekers:hover
+{
+	background-position: 0 39px;
+}
+#job-seekers span {display: none;}
+
+
+#faq
+{
+	display: block;
+	float: left;
+	position: relative;
+	top: 1px;
+	background-image: url('../images/faq.png');
+	background-position: 0px 0px;
+	height: 39px;
+	width: 64px;
+}
+#faq:hover
+{
+	background-position: 0 39px;
+}
+#faq span{display: none}
+
+#about-us
+{
+	display: block;
+	float: left;
+	position: relative;
+	top: 1px;
+	background-image: url('../images/about-us.png');
+	background-position: 0px 0px;
+	height: 39px;
+	width: 116px;
+}
+#about-us:hover
+{
+	background-position: 0 39px;
+}
+#about-us span {display: none;}
+
+#contact-us
+{
+	display: block;
+	float: left;
+	position: relative;
+	top: 1px;
+	background-image: url('../images/contact-us.png');
+	background-position: 0px 0px;
+	height: 39px;
+	width: 116px;
+}
+#contact-us:hover
+{
+	background-position: 0 39px;
+}
+#contact-us span {display: none;}
+
+#login-nav
+{
+	display: block;
+	float: left;
+	position: relative;
+	top: 1px;
+	background-image: url('../images/login.png');
+	background-position: 0px 0px;
+	height: 39px;
+	width: 77px;
+}
+#login-nav:hover
+{
+	background-position: 0 39px;
+}
+#login-nav span {display: none;}
+
+
+#signup-star
+{
+	position: relative;
+	float: left;
+	top: 70px;
+	left: 450px;
+	z-index: 100;
+	
+}
+
+#sign-up
+{
+	display: block;
+	float: left;
+	position: relative;
+	top: 1px;
+	background-image: url('../images/sign-up.png');
+	background-position: 0px 0px;
+	height: 39px;
+	width: 81px;
+}
+#sign-up:hover
+{
+	background-position: 0 39px;
+}
+#sign-up span {display: none;}
+
+#logout
+{
+	display: block;
+	float: left;
+	position: relative;
+	top: 1px;
+	background-image: url('../images/logout.png');
+	background-position: 0px 0px;
+	height: 39px;
+	width: 81px;
+}
+#logout:hover
+{
+	background-position: 0 39px;
+}
+#logout span {display: none;}
+
+#your-account
+{
+	display: block;
+	float: left;
+	position: relative;
+	top: 1px;
+	background-image: url('../images/your-account.png');
+	background-position: 0px 0px;
+	height: 39px;
+	width: 116px;
+}
+#your-account:hover
+{
+	background-position: 0 39px;
+}
+#your-account span {display: none;}
+/* 
+----------------------------------------------------------------------------------------------------*/
+
+
+/* Layout ID's
+----------------------------------------------------------------------------------------------------*/
+#pre-header
+{
+	width: 980px;
+	position: relative;
+	height: 38px;
+	margin: 0 auto;
+	font-size: 12px;
+	color: #583838;
+}
+#top-right-logged
+{
+	position: relative;
+	float: right;
+	background-image: url('../images/top-right-logged.png');
+	background-repeat: no-repeat;
+	width: 350px;
+	padding: 4px 3px 4px 3px;
+	text-align: center;
+	height: 24px;
+	font-size: 12px;
+	color: #7A7569;
+}
+#header {height: 112px;}
+#logo {
+	position: relative;
+	margin-left: -15px;
+	top: -38px;	
+	float: left;
+}
+#slogan h1
+{
+	float: right;
+	color: #71853E;
+	position: relative;
+	top: 10px;
+	text-align: center;
+	font-size: 24px;
+	text-shadow: #FFF 1px 1px 1px;
+	
+}
+#searchbox
+{
+	width: 100%;
+ 	padding: 10px 10px 10px 10px;
+ 	border: 4px solid #C0CF9B;
+	background-color: #E3F4B8;
+}
+#mainContentContainer
+{
+	background-image: url('../images/content-bg.png');
+	
+	background-repeat: repeat-y;
+	margin: 0 auto;
+	width: 1007px;
+	min-height: 300px;
+	_height: 100%; /* for IE6 */
+	
+} 
+
+#footer
+{
+	background-image: url('../images/footer-bg.png');
+	background-repeat: no-repeat;
+	height: 200px;
+	width: 1007px;
+	margin: 0 auto;
+	padding-top: 20px;
+} 
+
+
+div.job-single h2, div.seeker-single h2, div.employer-single h2 {font-size: 18px; color: #877569; margin-bottom: 10px; text-transform: uppercase;}
+div.job-single {line-height: 1.4em; margin-top: 10px; margin-bottom: 10px;}
+div.box-top h1 {color: #444; font-size: 25px;}
+div.box-top 
+{
+  padding: 20px 25px 4px 20px;
+  background-image: url('../images/half-box-top.jpg');
+  background-repeat: no-repeat;
+  min-height: 100px;
+}
+div.box-bottom 
+{
+  background-image: url('../images/half-box-bottom.jpg');
+  background-repeat: no-repeat;
+  min-height: 100px;
+}
+
+
+table.results {color: #333}
+table.results tr td{padding: 8px 4px 8px 4px;}
+
+div.yellow-box
+{
+  border-top: 1px solid #DFC099;
+  border-bottom: 1px solid #DFC099;
+  background-color: #FEFECD;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+.photo{ margin: 4px; padding: 3px; border: 2px solid #888; background-color: #fff;}
+
+.contentBox
+{
+  border-right: 1px solid #EEE;
+  line-height: normal;
+  
+}
+.contentBox h2 
+{
+  font-size: 14px;
+  font-weight: bold;
+  color: #444;
+  margin: 10px 0 7px 0; 
+  padding: 2px 4px 2px 4px;
+  background-color: #E8F6C7;
+  border-top: 1px solid #A7BF6B;
+}
+
+
+div#post-resume p 
+{
+  line-height: normal;
+  padding: 67px 10px 0px 20px;
+}
+
+div#list-job p
+{
+  line-height: normal;
+  padding: 67px 10px 0px 20px;
+}
+
+
+div#post-resume
+{
+  line-height: normal;
+  background-image: url('/images/post-resume-bg.png');
+  background-repeat: no-repeat;
+  height: 200px;
+}
+div#list-job
+{
+  background-image: url('/images/list-job-bg.png');
+  background-repeat: no-repeat;
+  height: 200px;
+}
+
+#notice {
+  font-weight: bold;
+  width: 90%;
+  padding: 5px;
+  text-align: center;
+  color: #139113; 
+  background-color: #DFFFDF; 
+  border: 2px solid #9FCF9F;
+  margin: 0 auto;
+}
+
+#error
+{
+  font-weight: bold; 
+  padding: 5px;
+  text-align: center;
+  color: #c34d4d;
+  background-color: #FFE3E3;
+  border: 2px solid #DD0000;
+  width: 90%;
+  margin: 0 auto;
+}
+
+#login-modal-content, #apply-modal-content
+{
+	display: none;
+}
+
+/* Classes
+----------------------------------------------------------------------------------------------------*/
+span.description
+{
+	color: #898989;
+  font-size: 11px;
+}
+.clear {clear: both;}
+.highlight {background-color: #FFF9D8; padding: 4px;}
+.floatleft {float: left;}
+.floatright {float: right;}
+span.required {font-weight: bold; color: red;}
+.footer-box div.title
+{
+  margin: 0; 
+  background-color: #E8F6C7;
+  color: #555; font-size: 12px; 
+  font-weight: bold;
+  padding: 6px;
+}
+.footer-box
+{
+  margin-left: 10px;
+}
+
+.footer-box a {font-size: 12px; padding: 2px 5px 2px 5px; text-decoration: none; color: #444}
+.footer-box a:hover {font-size: 12px; background-color: #668220; color: #fff;}
+.footer-box ul {list-style: none;}
+.footer-box ul li {padding: 2px; margin: 0}
+
+
+/* Form Errors
+----------------------------------------------------------------------------------------------------*/
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  color: #FFF;
+  display: table;
+  float: left;
+}
+
+.fieldWithErrors label {display: inline; color: #FFF!important; padding: 2px 8px 2px 8px!important;}
+
+#errorExplanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation ul {padding-left: 30px;}
+#errorExplanation ul li {
+  font-size: 14px;
+  padding: 2px 4px 2px 4px;
+  list-style: square;
+	
+}
+
+
+

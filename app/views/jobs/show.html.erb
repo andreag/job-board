@@ -1,0 +1,73 @@
+<% if logged_in? && current_user.account_type == "seeker"%>
+<script type="text/javascript"> 
+                                        
+	$(document).ready(function() {
+	
+		$('.apply-button').click(function (e)
+		 {
+			$('#apply-modal-content').modal(
+				{
+					opacity: 50,
+					overlayId: 'apply-container-overlay',
+					containerId: 'apply-container'
+				});
+
+			  return false;
+		});
+		
+	});
+	
+</script>
+
+<%end%>
+
+
+<div class="box-top"> 
+
+  <%= apply_for_job(@job.id) %>
+
+  <h1><%= h @job.title %></h1>
+
+  <div style="color: #444; background-color: #FDFDE3;">
+    <h4 style="margin-top: 0; padding:0; color: #444;"><%= link_to h(@job.employer.company_name), :controller => 'employers', :action => 'public', :id => @job.employer_id %> </h4>
+    <span style="font-weight: bold; font-style: italic">Deadline: <%= @job.deadline %> </span>
+    <br />
+    <%= @job.employer.website_url unless @job.employer.website_url.nil? %>
+  </div>
+  <div class="job-single">
+    <h2>Job Description</h2>
+    <%= h @job.description %>
+  </div>
+
+  <div class="job-single">
+    <h2>Qualifications</h2>
+    <%= h @job.qualifications %>
+  </div>
+   
+  <div class="job-single">
+    <h2>Salary Range</h2>
+    <%=  @job.salary %>
+  </div>
+ 
+  <div class="job-single">
+    <h2> How to Apply</h2>
+    <%=  h @job.apply_instructions unless @job.apply_instructions.nil? %>
+    <br />
+
+    <%= apply_for_job(@job.id) %>
+  </div>
+
+
+</div>
+<div class="box-bottom"></div> 
+
+<% if logged_in? && current_user.account_type == "seeker" %>
+<div id="apply-modal-content" class="modal">
+	<fieldset>
+		<%= render :partial => 'seekers/apply', :locals => {:job => @job, :resumes => @resumes} %>
+	</fieldset>
+</div>
+<% end %>
+
+
+

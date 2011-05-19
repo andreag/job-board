@@ -1,0 +1,17 @@
+<% f.fields_for :address do |a| %>
+
+  <div class="group">
+		<div class="field separated">
+			<%= a.label :city, "Ontario City:" %><%= required_field %><br />
+			<%= a.collection_select :city, MajorCanadianCity.find(:all, :conditions => "province = 'ontario'"), :city, :city %>
+		</div>
+
+		<div class="field">
+			<%= a.label :zipcode, "Postal Code:" %><%= required_field %><br />
+			<%= a.text_field :zipcode, :size => 10 %>
+		</div>
+	</div>
+
+
+<% end %>
+

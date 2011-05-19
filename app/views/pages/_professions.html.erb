@@ -1,0 +1,16 @@
+<%
+  is_more = false
+%>
+<% @categories.each_with_index do |c, i| %>
+  <% if i == 30 %>
+    <% is_more = true %>
+  <div id="more_professions" <% unless display_all %> style='display: none' <% end %>>
+  <% end %>
+  <div style="float: left; width: 230px;">
+    <img style="margin-right: 7px; position: relative; top: 3px;" src="/images/checkmark.gif" alt="" />
+    <%= link_to truncate(c.profession, :length => 24), jobs_path(:category_id => c.id, :filter => "1"), :style => "text-decoration: none;", :class => 'hoverGreen' %>
+  </div>
+<% end %>
+<% if is_more %>
+  </div> <!-- end more professions -->
+<% end %>

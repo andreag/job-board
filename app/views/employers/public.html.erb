@@ -1,0 +1,27 @@
+<div class="box-top"> 
+
+  <h1 style="display: inline"><%= h @employer.company_name %></h1>
+  <div style="width: 150px; float: right">
+    <% unless @employer.logo.nil? %>
+    <%= link_to (image_tag(@employer.logo.logo.url(:profile))),  {:controller => "employers", :action => "public", :id => @employer.id}, :style => "padding: 0; margin: 0;"  %>
+    <%-end-%>
+  </div>
+
+  <div style="color: #444; background-color: #FDFDE3;">
+    <strong>Administrative Contact:</strong> <%= @employer.user.name %>
+    <br />
+    <strong>Email:</strong> <%= @employer.user.email %> 
+    <br />
+    <% unless @employer.website_url.nil? %><strong>Website:</strong> <%= link_to @employer.website_url, @employer.website_url %><%-end-%> 
+    <br />
+ </div>
+
+  <div class="seeker-single">
+    <h2>Profile</h2>
+    <%= h @employer.description %>
+  </div>
+   
+   
+  
+</div>
+<div class="box-bottom"></div> 

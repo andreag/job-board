@@ -1,0 +1,17 @@
+<% render :partial => "employers/sidebar", :employer => @employer %>
+<% form_for(@job) do |f| %>
+  <%= f.error_messages %>
+
+<fieldset>
+  <legend>Create New Job Posting</legend>
+
+  <%= render :partial => "form", :locals => {:f => f}%>
+
+<br />
+  <div style="float: right; clear: both;">
+    <%= f.submit 'Create Job Listing' %>
+  </div>
+<% end %>
+
+<br />
+<br />

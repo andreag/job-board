@@ -1,0 +1,25 @@
+<%= render :partial => 'seekers/sidebar', :seeker => @seeker %>
+
+<fieldset>
+  <legend>Upload a Resume</legend>
+
+  <% form_for @resume, :html => {:multipart => true} do |form| %>
+    <%= error_messages_for :resume %> 
+
+    <div id="group">
+      <div id="field separated">
+        <%= form.label :name %>
+        <%= form.text_field :name %> 
+      </div>
+    </div>
+   <br />
+    <div id="group">
+      <div id="field separated">
+        <%= form.file_field :resume, :style => "float: left" %> 
+        &nbsp; <%= form.submit 'Upload' %>
+      </div>
+    </div>
+    <br />
+  <%- end -%>
+</fieldset>
+

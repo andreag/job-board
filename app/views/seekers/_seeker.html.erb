@@ -1,0 +1,19 @@
+ <% f.fields_for :seeker do |s| %>
+
+<div class="group">
+  <div class="field">
+    <%= s.label :career_objectives %><span class="description">- briefly outline your objectives</span><br />
+		<%= s.text_area :career_objectives, :cols => 75, :rows => 3, :class => "textfield" %>
+  </div>
+</div>
+
+<div class="group">
+  <div class="field">
+    <%= s.label :description %><span class="description">- tell us little bit about you</span><br />
+    <%= s.text_area :description, :cols => 75, :rows => 10, :class => "textfield" %>
+  </div>
+</div>
+
+
+<%-end-%>
+

@@ -1,0 +1,20 @@
+<div class="box-top"> 
+
+  <h1><%= h @seeker.user.name %></h1>
+
+
+  <% unless @seeker.career_objectives.nil? %>
+  <div class="seeker-single">
+    <h2>Career Objectives</h2>
+    <%= h @seeker.career_objectives %>
+  </div>
+  <%-end-%>
+  <div class="seeker-single">
+    <h2>Profile</h2>
+    <%= h @seeker.description %>
+  </div>
+   
+   
+  
+</div>
+<div class="box-bottom"></div> 

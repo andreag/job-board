@@ -1,0 +1,33 @@
+<img src="/images/job-categories.png" alt="job categories" />
+
+<!-- PROFESSION CATEGORIES -->  
+<div id="professions" class="grid_12">
+
+  <%= render :partial => 'professions', :locals => {:categories => @categories, :display_all => false} %>
+  <div style="width: 240px; float: right; margin-top: 15px;"><%= link_to 'View more &gt;&gt;' , {:controller => 'pages', :action => 'professions'}, :class => 'professions' %></div>
+
+</div>
+<br class="clear" />
+
+
+<div style="height: 5px; margin: 10px 0 10px 0; border-top: 2px dotted #CCC"></div>
+
+
+
+<!-- POST RESUME -->
+<div id="post-resume" class="grid_6 alpha">
+  <p> In ullamcorper nunc volutpat metus varius sit amet tempus arcu consequat. Phasellus ante neque, suscipit sit amet faucibus quis, porttitor et mi. Suspendisse cursus justo eget augue facilisis et rutrum nisi bibendum. Phasellus non dolor quam, vel laoreet libero. Cras tincidunt, lectus</p>
+</div>
+<!-- LIST JOB --> 
+<div id="list-job" class="grid_6 omega">
+  <p>
+    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris sit amet sapien ipsum. Suspendisse fringilla hendrerit nibh nec scelerisque. Phasellus magna
+  </p>
+</div>
+
+
+
+
+
+
+

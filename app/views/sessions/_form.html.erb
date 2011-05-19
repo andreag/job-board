@@ -1,0 +1,25 @@
+<div class="group">
+    <div class="field">
+      <%= label_tag 'login', "username or email" %> <br />
+      <%= text_field_tag 'login', @login, :class => "textfield" %></p>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="field separated">
+      <%= label_tag 'password'  %> <br />
+      <%= password_field_tag 'password', nil, :class => "textfield"  %>
+    </div>
+  </div>
+  <div class="group">
+    <div class="field">
+      <%= label_tag 'remember_me', 'Remember me', :style => "float: left" %>
+      <%= check_box_tag 'remember_me', '1', @remember_me,  :style => "float: left; position: relative; top: -4px" %></p>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="field">
+      <%= submit_tag 'Log in' %>
+    </div>
+  </div>

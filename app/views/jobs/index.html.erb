@@ -1,0 +1,46 @@
+<div id="searchbox">
+		
+		<% form_tag '/listings', :method => :get do %>
+
+			Job Title: <%= text_field_tag :job_title, nil, :size => 10 %>
+
+			Profession: <%= select  nil, "profession", Profession.all.collect{|p| [p.profession, p.profession]}, :include_blank => true %>
+			Location: <%= select nil, "location", MajorCanadianCity.all(:conditions => "province = 'ontario'").collect {|p| [p.city, p.city]}, :include_blank => true %>
+			<%= submit_tag 'Search', :style => "float: right; position: relative; top: 2px;"%>
+	<% end %>
+</div>
+
+<table class="alternate results" border="0" style="width: 100%">
+  <% unless @jobs.size < 1 %>
+	<tr>
+    <td><strong>Job Title</strong></td>
+    <td><strong>Company</strong></td>
+    <td><strong>Location</strong></td>
+    <td><strong>Deadline</strong></td>
+  </tr>
+	<% end %>
+	
+<% @jobs.each do |job| %>
+  <tr>
+    <td><%= link_to h(job.title), job_path(job) %></td>
+    <td><%= link_to h(job.employer.company_name), {:controller => "employers", :action => "public", :id => job.employer.id} %>
+      <% unless job.employer.logo.nil? %>
+        <br />
+        <%= link_to (image_tag(job.employer.logo.logo.url(:thumb))),  {:controller => "employers", :action => "public", :id => job.employer.id}, :style => "padding: 0; margin: 0;"  %>
+      <%-end-%>
+    </td>
+    <td><%= h job.location %></td>
+    <td><%= h job.deadline.to_s(:results) unless job.deadline.nil? %></td>
+  </tr>
+<% end %>
+<% if @jobs.size < 1 %>
+	<br />
+	<h2 style="font-size: 16px; font-weight: bold; text-align: center">Your search returned 0 results. <%= link_to 'Return to listings', '/listings' %></h2>
+<% end %>
+</table>
+
+<div style="margin-top: 10px; margin-bottom: 10px; text-align: center">
+  <%= will_paginate @jobs %>
+</div>
+
+<br />

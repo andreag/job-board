@@ -1,0 +1,88 @@
+
+<% @user.password = @user.password_confirmation = nil %>
+
+<%= error_messages_for :user %>
+
+<% form_for @user, :url => users_path do |f| -%>
+
+<fieldset>
+  <legend>
+		<% if @account_type == "seeker" %>Job Seeker <%- else -%> Employer <%- end -%> Account Information
+	</legend>
+
+  <div style="width: 300px; float: left">
+    <div class="group">
+      <div class="field separated">
+        <%= f.label 'login' %><%= required_field %><br />
+        <%= f.text_field :login, :class => "textfield", :size => 15 %>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="field separated">
+        <%= f.label'first_name' %><%= required_field %><br />
+        <%= f.text_field :first_name, :class => "textfield", :size => 15 %>
+      </div>
+
+      <div class="field">
+        <%= f.label 'last_name' %><%= required_field %><br />
+        <%= f.text_field :last_name, :class => "textfield", :size => 15 %>
+      </div>
+    </div>
+    
+    <div class="group">
+      <div class="field">
+        <%= f.label 'email' %><%= required_field %><br />
+        <%= f.text_field :email, :class => "textfield", :size => 36 %>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="field separated">
+        <%= f.label 'password' %><%= required_field %><br />
+        <%= f.password_field :password, :class => "textfield", :size => 15 %>
+      </div>
+    
+      <div class="field">
+        <%= f.label 'password_confirmation', 'Confirm Password' %><%= required_field %><br />
+        <%= f.password_field :password_confirmation, :class => "textfield", :size => 15 %>
+      </div>
+    </div>
+
+  </fieldset>
+  <br />
+
+  <% if params[:account_type] == "seeker" || @user.account_type == "seeker" %>
+  <%# JOB SEEKER FORM %>
+    <%= render :partial => 'seekers/seeker', :locals => {:seeker => @user.seeker, :f => f} %>
+  <% elsif params[:account_type] == "employer" || @user.account_type == "employer" %>
+  <%# EMPLOYER FORM %>
+  <fieldset>
+    <legend>Company Profile</legend>
+    <%= render :partial => 'employers/employer', :locals => {:employer => @user.employer, :f => f} %>
+  </fieldset>
+  <%-end-%>
+
+  <%= f.hidden_field :account_type %>
+  <div class="group">
+    <div class="field">
+      <%= submit_tag 'Sign up' %>
+    </div>
+  </div>
+
+ <% end -%>
+ <br class="clear" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+

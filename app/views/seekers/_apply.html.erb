@@ -1,0 +1,46 @@
+
+
+  <h1>Applying for "<%= h job.title %>"</h1>
+
+	<p style="line-height: normal; font-size: 12px">To applying for this job listing, please fill out the fields below and click submit.
+		<br /> Your information will be sent to the employer immediately. </p>
+	  <% form_tag '/seekers/applied' do %> 
+	
+		<br />
+		<div class="group">
+			<div class="field">
+					<%= label_tag :message_for_employer, nil, :style => "font-size: 12px;" %><span style="font-size: 11px;">(Optional)</span><br />
+					<%= text_area_tag :message_for_employer, nil, :cols => 50, :rows => 5 %>
+			</div>
+		</div>
+		<br class="clear">
+		
+
+    <h3><%= image_tag '/images/icons/attach.png' %> Attach Resume and/or Cover Letter</h3>
+    <% unless resumes.nil? || resumes.size < 1 %>
+				<div class="group">
+					<div class="field separated">
+							<%= label_tag :resume %><br />
+							<%= collection_select :attachment, :resume, Resume.find_all_by_seeker_id(current_user.seeker.id), :id, :name, :prompt => true %>
+					</div>
+					<div class="field">
+							<%= label_tag :coverletter %><br />
+						  <%= collection_select :attachment, :coverletter, Resume.find_all_by_seeker_id(current_user.seeker.id), :id, :name, :prompt => true %>
+					</div>
+				</div>
+			
+       <br class="clear"/> 
+				<p style="font-size: 12px;">or <%= link_to 'upload another document', new_resume_path %></p>
+			<% else %>
+			<p style="line-height: normal; font-size: 12px;">
+				Don't have a resume or cover letter, <%= link_to 'upload one now', new_resume_path %>
+		  </p>
+    <% end %>
+
+    <br />
+    <input type="hidden" id="job_id" name="job_id" value="<%= job.id %>" />
+    <%= submit_tag "Submit", :style => "float: right" %>
+  <% end %>
+
+</div>
+

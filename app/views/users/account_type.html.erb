@@ -1,0 +1,27 @@
+<h1>Please select account type</h1>
+
+<div style="background-color: #ECF7CF; padding: 8px; width: 45%; margin: 10px; float: left">
+  <h2>Job Seeker</h2> 
+  <strong>As an job seeker:</strong>
+  <ul style="padding-left: 20px;">
+    <li>Post your resume Free</li>
+    <li>Build your personalized profile for potential employers to view</li>
+    <li>Be notified when new jobs are released</li>
+  </ul>
+  <%= link_to "Sign up", :controller => 'users', :action => 'new', :account_type => 'seeker' %>
+    
+  <br />
+</div>
+
+<div style="background-color: #ECF7CF; padding: 8px; margin: 10px; width: 45%; float: right">
+  <h2>Employer</h2>
+  <strong>As an employer:</strong>
+  <ul style="padding-left: 20px">
+    <li>Post and fill job spaces fast and easy</li>
+    <li>Build a company profile for potential employees to view</li>
+    <li>more...</li>
+  </ul>
+
+  <%= link_to "Sign up", :controller => 'users', :action => 'new', :account_type => 'employer' %>
+  <br />
+</div>

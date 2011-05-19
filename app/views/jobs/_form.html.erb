@@ -1,0 +1,69 @@
+  <!-- JOB DETAILS -->
+  <div class="group">
+    <div class="field">
+      <%= f.label 'title', "Job Title:" %><%= required_field %><br />
+      <%= f.text_field :title, :class => "textfield" %>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="field">
+      <%= f.label 'description', "Job Description:" %><%= required_field %><br />
+      <%= f.text_area :description, :cols => 70, :rows => 10, :class => "textfield" %>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="field">
+      <%= f.label 'qualifications', "Qualifications:" %><br />
+      <%= f.text_area :qualifications, :cols => 70, :rows => 5, :class => "textfield" %>
+    </div>
+  </div>
+
+	<!--
+  <div class="group">
+    <div class="field">
+      <%#= f.label 'apply_instructions', "How to Apply:" %><br />
+      <%#= f.text_area :apply_instructions, :cols => 65, :rows => 6 , :class => "textfield"%>
+    </div>
+  </div>
+	-->
+	
+  <div class="group">
+    <div class="field">
+      <% f.fields_for :profession, @profession do |p| %>
+      <%= p.label 'profession', "Profession:" %><%= required_field %><br />
+      <%= p.collection_select(:profession, Profession.all, :profession, :profession, {:prompt => true}) %>
+    <%-end-%>
+    </div>
+  </div>
+  
+  <div class="group">
+     <span class="description" style="padding-left: 0; padding-bottom: 4px;">Please specify a salary range:</span><br />
+    <div class="field separated" style="margin-top: 4px;">
+      <%= f.label 'salary_low', "Low:" %>
+	    <%= f.collection_select(:salary_low, Salary.all, :salary, :display_value, {:prompt => true} ) %>
+	  </div>
+	  <div class="field" style="margin-top: 4px;">
+      <%= f.label 'salary_high', "High:" %>
+	    <%= f.collection_select(:salary_high, Salary.all, :salary, :display_value, {:prompt => true} ) %>
+	  </div>
+
+
+  </div>
+  
+   <div class="group">
+    <div class="field">
+      <%= f.label 'deadline', "Deadline:" %><%= required_field %><br />
+      <%= f.text_field :deadline, :size => 12,  :class => 'date-pick textfield'%>
+    </div>
+  </div>
+
+</fieldset>
+<br />
+<fieldset>
+  <legend>Job Location</legend>
+  <!-- JOB LOCATION -->
+  <%= render :partial => 'address', :locals => {:f => f} %>
+
+</fieldset>

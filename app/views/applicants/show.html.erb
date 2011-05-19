@@ -1,0 +1,40 @@
+<% render :partial => "employers/sidebar", :employer => @employer %>
+
+<h1 style="font-size: 24px">Applicants</h1>
+<h2 style="font-size: 18px"><%= @job.title %> </h2>
+
+<br />
+
+
+<% @applicants.each_with_index do |applicant, index| %>
+
+		<div style="width: 100%; line-height: normal; font-size: 14px; border: 4px solid #BCD283; height: 120px; padding: 10px; <% if (index % 2) == 1 %> background-color: #E3F4B8;<% end %>" >
+			<div style="width: 400px; float: left; <% if (index % 2) == 1 %> background-color: #E3F4B8;<% end %>">
+				
+				<strong>Applicant Name:</strong> <%= applicant.seeker.user.name %><br />
+				<strong>Applicant Email:</strong> <%= mail_to applicant.seeker.user.email %>
+				
+				<br /><br />
+				<strong>Applicant Message</strong><br />
+				<p style="font-size: 12px; line-height: normal;">
+					<%= h truncate(applicant.message_for_employer, :length => 180) %><%= link_to 'Read more', applicant_message_applicant_path(applicant.id), :target => "_blank" if applicant.message_for_employer.size > 180 %>
+				</p>
+			</div>
+			<div style=" float: right; <% if (index % 2) == 1 %> background-color: #E3F4B8;<% end %>">
+				<h2 style="font-size: 16px; margin-bottom: 8px;"><%= image_tag('/images/icons/attach.png', :style => "margin-right: 4px")%> Attachments</h2>
+				
+				<% applicant.resumes.each do |attachment| %>
+					<%= link_to attachment.name, attachment.resume.url %><br />
+				<% end %>
+				<br />
+				<%= link_to image_tag('/images/icons/trash.png', :style => "margin-right: 4px;", :title => 'Delete') + "Remove", applicant_path(applicant), :method => :delete, :confirm => "are you sure you want to delete this applicant?" %> 
+			
+			</div>
+		</div>
+		<br />
+		
+<% end %>
+
+
+<br />
+
